@@ -1,5 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CategoryPhoto from './components/CategoryPhoto.jsx';
+
+const headerStyle = {
+  'marginBotton': '32px',
+  color: '#484848',
+  'fontFamiliy': 'Sans-Serif'
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +19,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="mainContainer">
-        <div className="header">Tour this House</div>
-        <div className="photos">This is where the photos go</div>
+        <div className="header" style={headerStyle}>
+          <h1>Tour This Home</h1>
+        </div>
+        <div className="photos">
+        <CategoryPhoto />
+        </div>
         <div className="exploreMore">The button to explor more photos</div>
     </div>
     );
