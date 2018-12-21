@@ -50,7 +50,7 @@ var photourls = {
 
 };
 
-var categoryText = ['Lorem ipsum dolor sit amet, consectetur', '','porro quisquam est qui dolorem ipsum quia','','', '', '', '','','', '', ''];
+var categoryText = ['Lorem ipsum dolor sit amet, consectetur','porro quisquam est qui dolorem ipsum quia','','','','','','','','','',''];
 
 var createMock = function (listingid) {
 	var mockData = [];
@@ -83,8 +83,8 @@ var addPhotoURL = function(mockData) {
 	for(var i = 0; i < mockData.length; i++) {
 		var listing = mockData[i];
 		listing.photourl = photourls[listing.category][getRandomInt(6)];
-		listing.id = i;
-		listing.categoryText = categoryText[getRandomInt(13)];
+		listing.id = i+1;
+		listing.categoryText = categoryText[getRandomInt(12)];
 	}
 	return mockData;
 };

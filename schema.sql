@@ -13,8 +13,6 @@ CREATE TABLE listingphotos (
   PRIMARY KEY (id)
 );
 
-INSERT INTO listingphotos (id, listingId, photourl, category, categorytext) VALUES (1, 1, "some/url.com", "Bedroom", "It has a full bed");
-
 
 
 /*
