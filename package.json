@@ -10,7 +10,9 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
+    "create-db": "mysql -u root -p <schema.sql",
     "seed": "node seed.js"
+    
   },
   "dependencies": {
     "express": "^4.16.4",
