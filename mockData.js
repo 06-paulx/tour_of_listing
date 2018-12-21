@@ -1,5 +1,6 @@
 var necessaryCategories = ['Living Room', 'Kitchen', 'Bedroom', 'Bathroom', 'Dining Room', 'Entrance to Home'];
 var extraCategories = ['Recreation', 'Exterior', 'Entry']
+var houseTypes = ['house', 'cabin', 'apartment', 'condominium', 'castle', 'mansion'];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -91,4 +92,21 @@ var addPhotoURL = function(mockData) {
 
 var totalData = addPhotoURL(beforePhoto);
 
-module.exports = totalData;
+var createHouseType = function() {
+	var data = [];
+	for (var i = 1; i <= 100; i++) {
+		var type = {
+			id: i,
+			houseType: houseTypes[getRandomInt(6)],
+		}
+		data.push(type);
+	}
+	return data;
+}
+
+var houseTypeData = createHouseType();
+
+module.exports = {
+	totalData,
+	houseTypeData,
+} 

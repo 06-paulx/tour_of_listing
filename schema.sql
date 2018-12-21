@@ -13,6 +13,11 @@ CREATE TABLE listingphotos (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE listinghousetype (
+  id INT NOT NULL AUTO_INCREMENT,
+  listinghousetype varchar(100) NOT NULL,
+  PRIMARY KEY (id)
+);
 
 
 /*
