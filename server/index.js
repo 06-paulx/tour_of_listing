@@ -6,13 +6,14 @@ const db = require('../db/index.js');
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/', (req, res) => {
+app.get('/listingphotos', (req, res) => {
+  console.log('GET');
   db.retrievePhotos(function(err, results) {
     if (err) {
       console.log('Error retrieving data from database');
       return;
     } else {
-      res.send();
+      res.send(results);
     }
   }); 
 });
