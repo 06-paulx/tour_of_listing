@@ -20,6 +20,7 @@ var retrievePhotos = (callback) => {
   });
 };
 
+
 module.exports = {
   retrievePhotos,
 }
