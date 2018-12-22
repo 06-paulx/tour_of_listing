@@ -8,6 +8,12 @@ const headerStyle = {
   'fontFamiliy': 'Sans-Serif'
 };
 
+const photoContainer = {
+  'display': 'flex',
+  'flexDirection': 'row',
+  'flexWrap': 'wrap',
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +28,14 @@ class App extends React.Component {
         <div className="header" style={headerStyle}>
           <h1>Tour This Home</h1>
         </div>
-        <div className="photos">
-        <CategoryPhoto />
+        <div className="photosContainer">
+          <div style={photoContainer}>
+          <CategoryPhoto />
+          <CategoryPhoto />
+          <CategoryPhoto />
+          </div>
         </div>
-        <div className="exploreMore">The button to explor more photos</div>
+        <div className="exploreMore">The button to explore more photos</div>
     </div>
     );
   }

@@ -11,8 +11,9 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "create-db": "mysql -u root -p <schema.sql",
-    "seed": "node seed.js"
-    
+    "seed": "node seed.js",
+    "test": "jest --verbose",
+    "jest": {"setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"}
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -25,7 +26,10 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^23.6.0",
     "webpack": "^4.28.0",
     "webpack-cli": "^3.1.2"
   }
