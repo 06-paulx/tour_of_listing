@@ -33,6 +33,7 @@ class App extends React.Component {
           <CategoryPhoto />
           <CategoryPhoto />
           <CategoryPhoto />
+          <CategoryPhoto />
           </div>
         </div>
         <div className="exploreMore">The button to explore more photos</div>
@@ -42,3 +43,5 @@ class App extends React.Component {
 };
 
 ReactDOM.render(<App />, document.getElementById('tourOfListing'));  
+
+export default App;
