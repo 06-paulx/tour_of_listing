@@ -3,6 +3,7 @@ var app = express();
 const path = require('path');
 const port = 3004; //Specific for tourphotos
 const db = require('../db/index.js');
+const helperFunc = require('../helperFunctions/sortByCategory.js');
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -13,7 +14,8 @@ app.get('/listingphotos', (req, res) => {
       console.log('Error retrieving data from database');
       return;
     } else {
-      res.send(results);
+      var sortedData = helperFunc.sortByCategory(results);
+      res.send(sortedData);
     }
   }); 
 });
