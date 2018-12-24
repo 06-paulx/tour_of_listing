@@ -15,12 +15,23 @@ const photoContainer = {
   'flexWrap': 'wrap',
 }
 
+const button = {
+  'backgroundColor': 'transparent',
+  'border': '0px',
+  'textAlign': 'left',
+  'fontFamily': 'Sans-Serif',
+  'color': '#A61D55',
+  'fontSize': '14px'
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: {},
+      view: 'main'
     };
+    this.changeView = this.changeView.bind(this);
   }
 
   retrievePhotos() {
@@ -35,7 +46,12 @@ class App extends React.Component {
           photos: data,
         });
       });
+  }
 
+  changeView() {
+    this.setState({
+      view: 'viewAllRooms',
+    })
   }
 
   componentDidMount() {
@@ -51,12 +67,13 @@ class App extends React.Component {
         <div className="photosContainer">
           <div style={photoContainer}>
           {_.map(this.state.photos, function(value) {
-            console.log(value);
             return <CategoryPhoto photos={value} />
           })}
           </div>
         </div>
-        <div className="exploreMore">The button to explore more photos</div>
+        <div className="exploreMore">
+          <button style={button}>Explore all # photos</button>
+        </div>
     </div>
     );
   }
