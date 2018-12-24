@@ -40,10 +40,10 @@ var CategoryPhoto = (props) => {
     <div className='categoryContainer'>
       <button className='photoButton' style={button}>
         <div className='photoContainer' style={photoContainer}>
-        <img style={img} src="https://s3-us-west-1.amazonaws.com/touroflistingphotostream/livingroom2.jpg"/>
+        <img style={img} src={props.photos[0].photourl}/>
         </div>
         <div className='categoryName' style={categoryName}>
-          <span>bedroom dining room etc</span>
+          <span>{props.photos[0].category}</span>
         </div>
       </button>
     </div>

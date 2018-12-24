@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CategoryPhoto from './components/CategoryPhoto.jsx';
+import _ from 'lodash';
 
 const headerStyle = {
   'marginBotton': '32px',
@@ -18,7 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      photos: {},
     };
   }
 
@@ -28,10 +29,12 @@ class App extends React.Component {
         return response.json();
       })
       .then((data) => {
-        console.log('Data from Fetch ', data[0].photourl);
+        console.log('Data from Fetch ', data);
         console.log('The type of data is ', typeof data);
-        //Can now set state with this.
-      })
+        this.setState({
+          photos: data,
+        });
+      });
 
   }
 
@@ -47,10 +50,10 @@ class App extends React.Component {
         </div>
         <div className="photosContainer">
           <div style={photoContainer}>
-          <CategoryPhoto />
-          <CategoryPhoto />
-          <CategoryPhoto />
-          <CategoryPhoto />
+          {_.map(this.state.photos, function(value) {
+            console.log(value);
+            return <CategoryPhoto photos={value} />
+          })}
           </div>
         </div>
         <div className="exploreMore">The button to explore more photos</div>
