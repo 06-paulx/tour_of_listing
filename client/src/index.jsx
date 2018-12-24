@@ -22,6 +22,23 @@ class App extends React.Component {
     };
   }
 
+  retrievePhotos() {
+    fetch('/listingphotos')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Data from Fetch ', data[0].photourl);
+        console.log('The type of data is ', typeof data);
+        //Can now set state with this.
+      })
+
+  }
+
+  componentDidMount() {
+    this.retrievePhotos();
+  }
+
   render() {
     return (
       <div className="mainContainer">
