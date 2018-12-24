@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CategoryPhoto from './components/CategoryPhoto.jsx';
 import _ from 'lodash';
+import ViewAllRooms from './components/ViewAllRooms.jsx';
 
 const headerStyle = {
   'marginBotton': '32px',
@@ -31,7 +32,8 @@ class App extends React.Component {
       photos: {},
       view: 'main'
     };
-    this.changeView = this.changeView.bind(this);
+    this.changeToViewAllRooms = this.changeToViewAllRooms.bind(this);
+    this.changeViewToMain = this.changeViewToMain.bind(this);
   }
 
   retrievePhotos() {
@@ -48,9 +50,15 @@ class App extends React.Component {
       });
   }
 
-  changeView() {
+  changeToViewAllRooms() {
     this.setState({
       view: 'viewAllRooms',
+    })
+  }
+
+  changeViewToMain() {
+    this.setState({
+      view: 'main',
     })
   }
 
@@ -59,23 +67,31 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="mainContainer">
-        <div className="header" style={headerStyle}>
-          <h1>Tour This Home</h1>
-        </div>
-        <div className="photosContainer">
-          <div style={photoContainer}>
-          {_.map(this.state.photos, function(value) {
-            return <CategoryPhoto photos={value} />
-          })}
+    if (this.state.view === 'main'){
+      return (
+        <div className="mainContainer">
+          <div className="header" style={headerStyle}>
+            <h1>Tour This Home</h1>
           </div>
+          <div className="photosContainer">
+            <div style={photoContainer}>
+            {_.map(this.state.photos, function(value) {
+              return <CategoryPhoto photos={value} />
+            })}
+            </div>
+          </div>
+          <div className="exploreMore">
+            <button style={button} onClick={this.changeToViewAllRooms}>Explore all # photos</button>
+          </div>
+      </div>
+      );
+    } else if (this.state.view === 'viewAllRooms') {
+      return (
+        <div>
+          <ViewAllRooms photos={this.state.photos} changeViewToMain={this.changeViewToMain}/>
         </div>
-        <div className="exploreMore">
-          <button style={button}>Explore all # photos</button>
-        </div>
-    </div>
-    );
+      );
+    }
   }
 };
 

@@ -5,7 +5,10 @@ const viewAllRooms = (props) => {
 
   return (
     <div>
-      <div className='viewAllRoomsHeader'>Tour this home</div>
+      <div className='viewAllRoomsHeader'>
+        <button onClick={props.changeViewToMain}>Go Back</button>
+        <button>Tour Home</button>
+      </div>
       <div className='viewAllRoomsMainContainer'>
         <div className='categoryContainer'>
         <ViewOneRoom />
