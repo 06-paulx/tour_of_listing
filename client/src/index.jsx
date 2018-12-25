@@ -4,40 +4,27 @@ import CategoryPhoto from './components/CategoryPhoto.jsx';
 import _ from 'lodash';
 import ViewAllRooms from './components/ViewAllRooms.jsx';
 
-const headerStyle = {
-  'marginBotton': '32px',
-  color: '#484848',
-  'fontFamiliy': 'Sans-Serif'
-};
-
-const photoContainer = {
-  'display': 'flex',
-  'flexDirection': 'row',
-  'flexWrap': 'wrap',
-}
-
-const button = {
-  'backgroundColor': 'transparent',
-  'border': '0px',
-  'textAlign': 'left',
-  'fontFamily': 'Sans-Serif',
-  'color': '#A61D55',
-  'fontSize': '14px'
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: {},
-      view: 'main'
+      view: 'main',
     };
     this.changeToViewAllRooms = this.changeToViewAllRooms.bind(this);
     this.changeViewToMain = this.changeViewToMain.bind(this);
   }
 
   retrievePhotos() {
-    fetch('/listingphotos')
+    var listingId = window.location.pathname.slice(1);
+    console.log('listingId is ======= ', listingId);
+    fetch(`http://localhost:3004/${listingId}/listingphotos`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
       .then((response) => {
         return response.json();
       })
@@ -61,10 +48,32 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log('component mounted ', this.state.listingId);
     this.retrievePhotos();
   }
 
   render() {
+    const headerStyle = {
+      'marginBotton': '32px',
+      color: '#484848',
+      'fontFamiliy': 'Sans-Serif'
+    };
+    
+    const photoContainer = {
+      'display': 'flex',
+      'flexDirection': 'row',
+      'flexWrap': 'wrap',
+    }
+    
+    const button = {
+      'backgroundColor': 'transparent',
+      'border': '0px',
+      'textAlign': 'left',
+      'fontFamily': 'Sans-Serif',
+      'color': '#A61D55',
+      'fontSize': '14px'
+    }
+
     if (this.state.view === 'main'){
       return (
         <div className="mainContainer">
@@ -92,6 +101,7 @@ class App extends React.Component {
     }
   }
 };
+
 
 ReactDOM.render(<App />, document.getElementById('tourOfListing'));  
 
