@@ -42,8 +42,6 @@ class App extends React.Component {
         return response.json();
       })
       .then((data) => {
-        console.log('Data from Fetch ', data);
-        console.log('The type of data is ', typeof data);
         this.setState({
           photos: data,
         });
