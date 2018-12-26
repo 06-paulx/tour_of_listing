@@ -3,7 +3,8 @@ import ViewOneRoomPhoto from './viewOneRoomPhoto.jsx'
 import _ from 'lodash';
 
 const mainContainer = {
-  'marginBottom': '24px'
+  'marginBottom': '24px',
+  'marginRight': '48px'
 }
 
 const photoContainer = {

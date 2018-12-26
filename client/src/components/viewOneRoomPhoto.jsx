@@ -15,6 +15,7 @@ const button = {
 const img = {
   'width': '100%',
   'height': '109px',
+  'borderRadius': '5px'
   
 }
 

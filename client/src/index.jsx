@@ -54,15 +54,17 @@ class App extends React.Component {
 
   render() {
     const headerStyle = {
-      'marginBotton': '32px',
-      color: '#484848',
-      'fontFamiliy': 'Sans-Serif'
+      'marginBotton': '36px',
+      'color': '#484848',
+      'font': 'system-ui'
+      
     };
     
     const photoContainer = {
       'display': 'flex',
       'flexDirection': 'row',
       'flexWrap': 'wrap',
+      'marginBottom': '30px',
     }
     
     const button = {
@@ -78,7 +80,7 @@ class App extends React.Component {
       return (
         <div className="mainContainer">
           <div className="header" style={headerStyle}>
-            <h1>Tour This Home</h1>
+            <h1>Tour this house</h1>
           </div>
           <div className="photosContainer">
             <div style={photoContainer}>

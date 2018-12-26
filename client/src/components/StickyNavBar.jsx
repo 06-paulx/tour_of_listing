@@ -23,6 +23,12 @@ class StickyNavBar extends React.Component {
       'top': '0',
       'width': '100%',
     }
+    const bar = {
+      'height': '50px',
+      'backgroundColor': 'white',
+      'borderBottom': '1px solid gray',
+
+    }
     const backArrow = {
       'height': '22px',
       'width': '22px',
@@ -32,20 +38,20 @@ class StickyNavBar extends React.Component {
     const button = {
       'backgroundColor': 'transparent',
       'border': '0px',
-      'width': '100%'
+      'width': '20px',
+      'align': 'left',
+      'marginRight': '50px',
     }
     return(
       <nav style={fixedNav}>
-        <span>
+        <div style={bar}>
           <button onClick={this.props.changeViewToMain} style={button}>
            <svg viewBox="0 0 18 18" role="img" aria-label="Close" focusable="false" style={backArrow}>
              <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path>
            </svg>
           </button>
-        </span>
-        <span>
-          <button>Tour this House</button>
-        </span>
+          <button>Tour this home</button>
+        </div>
       </nav>
     )
   }
