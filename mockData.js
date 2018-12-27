@@ -21,14 +21,14 @@ var photourls = {
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/kitchen5.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/kitchen6.jpg"],
 
-	'Bedroom': ["https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom1.jpg",
+	'Bathroom': ["https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom1.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom2.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom3.jpeg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom4.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom5.jpeg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bathroom6.jpeg"],
 
-	'Bathroom': ["https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bedroom1.jpg",
+	'Bedroom': ["https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bedroom1.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bedroom2.jpg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bedroom3.jpeg",
 							"https://s3-us-west-1.amazonaws.com/touroflistingphotostream/bedroom4.jpg",

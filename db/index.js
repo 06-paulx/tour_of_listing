@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
 
 connection.connect()
 
-var retrievePhotos = (callback) => {
-  connection.query('SELECT * FROM listingphotos WHERE listingId=1', function(err, results) {
+var retrievePhotos = (listingId, callback) => {
+  connection.query(`SELECT * FROM listingphotos WHERE listingId=${listingId}`, function(err, results) {
     if (err) {
       console.log('Error retrieving photos from database');
       return;
