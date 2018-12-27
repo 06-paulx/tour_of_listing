@@ -1,7 +1,7 @@
 import React from 'react';
 
 const photoContainer = {
-  'padding': '2px',
+  'padding': '0.5px',
   'width': '123px',
   'borderRadius': '10%',
 }

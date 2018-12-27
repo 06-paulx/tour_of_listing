@@ -42,6 +42,14 @@ class StickyNavBar extends React.Component {
       'align': 'left',
       'marginRight': '50px',
     }
+    const tourhomebutton = {
+      'backGroundColor': 'transparent',
+      'borderColor': 'rgb (72, 72, 72)',
+      'borderRadius': '4px',
+      'borderStyle': 'solid',
+      'borderWidth': '1px',
+    }
+
     return(
       <nav style={fixedNav}>
         <div style={bar}>
@@ -50,7 +58,7 @@ class StickyNavBar extends React.Component {
              <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path>
            </svg>
           </button>
-          <button>Tour this home</button>
+          <button style={tourhomebutton}>Tour this home</button>
         </div>
       </nav>
     )
