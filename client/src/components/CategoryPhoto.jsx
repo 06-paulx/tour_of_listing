@@ -40,7 +40,7 @@ var CategoryPhoto = (props) => {
 
   return (
     <div className='categoryContainer'>
-      <button className='photoButton' style={button}>
+      <button className='photoButton' style={button} onClick={props.changeToTourThisHome}>
         <div className='photoContainer' style={photoContainer}>
         <img style={img} src={props.photos[0].photourl}/>
         </div>

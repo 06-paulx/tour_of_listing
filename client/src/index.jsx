@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import CategoryPhoto from './components/CategoryPhoto.jsx';
 import _ from 'lodash';
 import ViewAllRooms from './components/ViewAllRooms.jsx';
+import TourThisHome from './components/TourThisHome.jsx';
 
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
     };
     this.changeToViewAllRooms = this.changeToViewAllRooms.bind(this);
     this.changeViewToMain = this.changeViewToMain.bind(this);
+    this.changeToTourThisHome = this.changeToTourThisHome.bind(this);
   }
 
   retrievePhotos() {
@@ -47,6 +49,12 @@ class App extends React.Component {
     })
   }
 
+  changeToTourThisHome() {
+    this.setState({
+      view: 'tourThisHome',
+    })
+  }
+
   componentDidMount() {
     console.log('component mounted ', this.state.listingId);
     this.retrievePhotos();
@@ -77,6 +85,7 @@ class App extends React.Component {
     }
 
     if (this.state.view === 'main'){
+      const some = this;
       return (
         <div className="mainContainer">
           <div className="header" style={headerStyle}>
@@ -85,7 +94,7 @@ class App extends React.Component {
           <div className="photosContainer">
             <div style={photoContainer}>
             {_.map(this.state.photos, function(value) {
-              return <CategoryPhoto photos={value} />
+              return <CategoryPhoto photos={value} changeToTourThisHome={some.changeToTourThisHome}/>
             })}
             </div>
           </div>
@@ -97,9 +106,18 @@ class App extends React.Component {
     } else if (this.state.view === 'viewAllRooms') {
       return (
         <div>
-          <ViewAllRooms photos={this.state.photos} changeViewToMain={this.changeViewToMain}/>
+          <ViewAllRooms 
+          photos={this.state.photos} 
+          changeViewToMain={this.changeViewToMain}
+          changeToTourThisHome={this.changeToTourThisHome} />
         </div>
       );
+    } else if (this.state.view === 'tourThisHome') {
+      return (
+        <div>
+          <TourThisHome photos={this.state.photos} changeViewToMain={this.changeViewToMain}/>
+        </div>
+      )
     }
   }
 };

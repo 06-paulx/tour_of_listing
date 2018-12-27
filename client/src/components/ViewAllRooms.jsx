@@ -19,7 +19,7 @@ const viewAllRooms = (props) => {
   return (
     <div>
       <div className='viewAllRoomsHeader' style={viewAllRoomsMainContainer}>
-        <StickyNavBar changeViewToMain={props.changeViewToMain}/>
+        <StickyNavBar changeViewToMain={props.changeViewToMain} changeToTourThisHome={props.changeToTourThisHome}/>
       </div>
       <div className='viewAllRoomsMainContainer'>
         <div className='categoryContainer' style={categoryContainer}>
