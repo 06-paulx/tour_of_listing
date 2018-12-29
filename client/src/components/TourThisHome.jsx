@@ -9,13 +9,15 @@ const TourThisHome = (props) => {
   return (
     <div>
       <div className='TourThisHomeHeader'>
-        <StickyNavBar changeViewToMain={props.changeViewToMain} />
+        <StickyNavBar 
+        changeViewToMain={props.changeViewToMain}
+        changeToViewAllRooms={props.changeToViewAllRooms}
+        view={props.view} />
       </div>
       <div className='mainConatainer'>
         <div className='sideMargins'>
           <div className='topMargins'>
             <div className='sectionsContainer'>
-             TESTING
 
             </div>
           </div>

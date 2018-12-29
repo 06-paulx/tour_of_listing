@@ -109,13 +109,18 @@ class App extends React.Component {
           <ViewAllRooms 
           photos={this.state.photos} 
           changeViewToMain={this.changeViewToMain}
-          changeToTourThisHome={this.changeToTourThisHome} />
+          changeToTourThisHome={this.changeToTourThisHome}
+          view='viewAllRooms' />
         </div>
       );
     } else if (this.state.view === 'tourThisHome') {
       return (
         <div>
-          <TourThisHome photos={this.state.photos} changeViewToMain={this.changeViewToMain}/>
+          <TourThisHome 
+          photos={this.state.photos} 
+          changeViewToMain={this.changeViewToMain}
+          changeToViewAllRooms={this.changeToViewAllRooms} 
+          view='tourThisHome'/>
         </div>
       )
     }

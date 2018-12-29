@@ -49,19 +49,33 @@ class StickyNavBar extends React.Component {
       'borderStyle': 'solid',
       'borderWidth': '1px',
     }
-
-    return(
-      <nav style={fixedNav}>
+    if (this.props.view === 'viewAllRooms') {
+      return (
+        <nav style={fixedNav}>
         <div style={bar}>
           <button onClick={this.props.changeViewToMain} style={button}>
            <svg viewBox="0 0 18 18" role="img" aria-label="Close" focusable="false" style={backArrow}>
              <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path>
            </svg>
           </button>
-          <button style={tourhomebutton} onClick={this.props.changeToTourThisHome}>Tour this home</button>
+          <button style={tourhomebutton} onClick={this.props.changeToTourThisHome}>Tour this homes</button>
         </div>
       </nav>
-    )
+      )
+    } else if (this.props.view ==='tourThisHome') {
+        return(
+          <nav style={fixedNav}>
+            <div style={bar}>
+              <button onClick={this.props.changeViewToMain} style={button}>
+              <svg viewBox="0 0 18 18" role="img" aria-label="Close" focusable="false" style={backArrow}>
+               <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path>
+              </svg>
+              </button>
+              <button style={tourhomebutton} onClick={this.props.changeToViewAllRooms}>View All Rooms</button>
+            </div>
+          </nav>
+        )
+      }
   }
 }
 
