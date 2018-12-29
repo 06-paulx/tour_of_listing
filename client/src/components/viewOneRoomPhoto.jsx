@@ -23,7 +23,7 @@ const ViewOneRoomPhoto = (props) => {
 
   return (
     <div className='photoContainer' style={photoContainer}>
-    <button style={button}>
+    <button style={button} onClick={props.changeToTourThisHome}>
       <div>
         <img style={img} src={props.photo.photourl}></img>
       </div>

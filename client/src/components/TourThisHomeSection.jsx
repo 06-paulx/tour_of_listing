@@ -1,14 +1,20 @@
 import React from 'react';
+import _ from 'lodash';
 
 const TourThisHomeSection = (props) => {
 
   return (
     <section>
-      <h1>CategoryName</h1>
-      <div>CategoryText</div>
+      <h1>{props.photos[0].category}</h1>
       <div className='photoContainer'>
-        <div>photos</div>
-        <div>more photos</div>
+        {_.map(props.photos, function(photo) {
+          return (
+            <div>
+              <div>{photo.categorytext}</div>
+              <img src={photo.photourl}></img>
+            </div>
+          )
+        })}
       </div>
     </section>
   )

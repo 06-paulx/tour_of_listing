@@ -6,6 +6,9 @@ import _ from 'lodash';
 
 const TourThisHome = (props) => {
 
+  const topMargins = {
+    'paddingTop': '50px',
+  }
   return (
     <div>
       <div className='TourThisHomeHeader'>
@@ -16,9 +19,11 @@ const TourThisHome = (props) => {
       </div>
       <div className='mainConatainer'>
         <div className='sideMargins'>
-          <div className='topMargins'>
+          <div className='topMargins' style={topMargins}>
             <div className='sectionsContainer'>
-
+              {_.map(props.photos, function(photos) {
+                return <TourThisHomeSection photos={photos}/>
+              })}
             </div>
           </div>
         </div>

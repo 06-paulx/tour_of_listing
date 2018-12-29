@@ -26,7 +26,7 @@ const ViewOneRoom = (props) => {
     <div style={mainContainer}>
       <div className='photosContainer' style={photoContainer}>
         {_.map(props.photos, (photo) => {
-          return <ViewOneRoomPhoto photo={photo} />
+          return <ViewOneRoomPhoto photo={photo} changeToTourThisHome={props.changeToTourThisHome}/>
         })}
       </div>
       <div className='categoryName' style={categoryName}>{props.photos[0].category}</div>
