@@ -99,7 +99,11 @@ class App extends React.Component {
             </div>
           </div>
           <div className="exploreMore">
-            <button style={button} onClick={this.changeToViewAllRooms}>Explore all # photos</button>
+            <button style={button} onClick={this.changeToViewAllRooms}>
+            Explore all {_.reduce(this.state.photos, (acc, value, key) => {
+              return acc + value.length
+            }, 0)} photos
+            </button>
           </div>
       </div>
       );
