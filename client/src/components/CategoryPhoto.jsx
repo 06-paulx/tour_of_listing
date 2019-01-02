@@ -38,8 +38,15 @@ var CategoryPhoto = (props) => {
     'color': '#484848'
   }
 
+  const Container = {
+    'width': '25%',
+    'maxWidth': '250px',
+    'minWidth': '250px',
+    'paddingBottom': '16px',
+  }
+
   return (
-    <div className='categoryContainer'>
+    <div className='categoryContainer' style={Container} >
       <button className='photoButton' style={button} onClick={props.changeToTourThisHome}>
         <div className='photoContainer' style={photoContainer}>
         <img style={img} src={props.photos[0].photourl}/>

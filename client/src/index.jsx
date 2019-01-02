@@ -61,6 +61,17 @@ class App extends React.Component {
   }
 
   render() {
+    const padding = {
+      'marginLeft': '12px',
+      'mrginRight': '12px',
+    }
+
+    const mainContainer = {
+      'marginLeft': 'auto',
+      'marginRight': 'auto',
+      'paddingLeft': '50px',
+      'paddingRight': '50px',
+    }
     const headerStyle = {
       'marginBotton': '36px',
       'color': '#484848',
@@ -84,28 +95,31 @@ class App extends React.Component {
       'fontSize': '14px'
     }
 
+
     if (this.state.view === 'main'){
       const some = this;
       return (
-        <div className="mainContainer">
-          <div className="header" style={headerStyle}>
-            <h1>Tour this house</h1>
-          </div>
-          <div className="photosContainer">
-            <div style={photoContainer}>
-            {_.map(this.state.photos, function(value) {
+        <div style={padding}>
+          <div className="mainContainer" style={mainContainer}>
+            <div className="header" style={headerStyle}>
+              <h1>Tour this house</h1>
+            </div>
+            <div className="photosContainer">
+              <div style={photoContainer}>
+              {_.map(this.state.photos, function(value) {
               return <CategoryPhoto photos={value} changeToTourThisHome={some.changeToTourThisHome}/>
-            })}
+              })}
+              </div>
+            </div>
+            <div className="exploreMore">
+              <button style={button} onClick={this.changeToViewAllRooms}>
+              Explore all {_.reduce(this.state.photos, (acc, value, key) => {
+                return acc + value.length
+              }, 0)} photos
+              </button>
             </div>
           </div>
-          <div className="exploreMore">
-            <button style={button} onClick={this.changeToViewAllRooms}>
-            Explore all {_.reduce(this.state.photos, (acc, value, key) => {
-              return acc + value.length
-            }, 0)} photos
-            </button>
-          </div>
-      </div>
+        </div>
       );
     } else if (this.state.view === 'viewAllRooms') {
       return (

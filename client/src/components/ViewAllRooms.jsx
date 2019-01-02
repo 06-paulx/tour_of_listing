@@ -14,7 +14,7 @@ const viewAllRooms = (props) => {
   }
 
   const viewAllRoomsMainContainer = {
-    'paddingTop': '50px',
+    'marginTop': '64px',
   }
   return (
     <div>
@@ -24,7 +24,7 @@ const viewAllRooms = (props) => {
         changeToTourThisHome={props.changeToTourThisHome}
         view={props.view} />
       </div>
-      <div className='viewAllRoomsMainContainer'>
+      <div className='viewAllRoomsMainContainer' >
         <div className='categoryContainer' style={categoryContainer}>
         {_.map(props.photos, (category) => {
           return <ViewOneRoom photos={category} changeToTourThisHome={props.changeToTourThisHome}/>
