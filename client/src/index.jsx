@@ -60,8 +60,6 @@ class App extends React.Component {
     this.retrievePhotos();
   }
 
-  
-
   render() {
     const padding = {
       'marginLeft': '12px',
@@ -74,11 +72,11 @@ class App extends React.Component {
       'paddingLeft': '24px',
       'paddingRight': '24px',
     }
+
     const headerStyle = {
       'marginBotton': '36px',
       'color': '#484848',
       'font': 'system-ui'
-      
     };
     
     const photoContainer = {

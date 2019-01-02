@@ -45,16 +45,23 @@ var CategoryPhoto = (props) => {
     'paddingBottom': '16px',
   }
 
+  var hrefs = (idName) => {
+    return '#' + idName;
+  }
+
   return (
     <div className='categoryContainer' style={Container} >
-      <button className='photoButton' style={button} onClick={props.changeToTourThisHome}>
-        <div className='photoContainer' style={photoContainer}>
-        <img style={img} src={props.photos[0].photourl}/>
-        </div>
-        <div className='categoryName' style={categoryName}>
-          <span>{props.photos[0].category}</span>
-        </div>
-      </button>
+      <a href={hrefs(props.photos[0].category)}>
+        <button className='photoButton' style={button} onClick={props.changeToTourThisHome}>
+          <div className='photoContainer' style={photoContainer}>
+          <img style={img} src={props.photos[0].photourl}/>
+          </div>
+          <div className='categoryName' style={categoryName}>
+            <span>{props.photos[0].category}</span>
+          </div>
+        </button>
+      </a>
+      
     </div>
   )
 }

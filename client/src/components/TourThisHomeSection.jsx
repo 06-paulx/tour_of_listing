@@ -15,9 +15,9 @@ const TourThisHomeSection = (props) => {
   }
 
   return (
-    <div>
+    <div id={props.photos[0].category}>
       <section>
-        <h1 id={props.photos[0].category}>{props.photos[0].category}</h1>
+        <h1>{props.photos[0].category}</h1>
         <div className='photoContainer'>
           {_.map(props.photos, function(photo, index) {
             return (
