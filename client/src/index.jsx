@@ -60,6 +60,8 @@ class App extends React.Component {
     this.retrievePhotos();
   }
 
+  
+
   render() {
     const padding = {
       'marginLeft': '12px',
@@ -67,10 +69,10 @@ class App extends React.Component {
     }
 
     const mainContainer = {
-      'marginLeft': 'auto',
-      'marginRight': 'auto',
-      'paddingLeft': '50px',
-      'paddingRight': '50px',
+      'maxWidth': '1080px',
+      'margin': 'auto',
+      'paddingLeft': '24px',
+      'paddingRight': '24px',
     }
     const headerStyle = {
       'marginBotton': '36px',
@@ -84,6 +86,7 @@ class App extends React.Component {
       'flexDirection': 'row',
       'flexWrap': 'wrap',
       'marginBottom': '30px',
+      'marginTop': '24px',
     }
     
     const button = {
@@ -95,6 +98,9 @@ class App extends React.Component {
       'fontSize': '14px'
     }
 
+    const h1 = {
+      'marginBottom': '32px',
+    }
 
     if (this.state.view === 'main'){
       const some = this;
@@ -102,7 +108,7 @@ class App extends React.Component {
         <div style={padding}>
           <div className="mainContainer" style={mainContainer}>
             <div className="header" style={headerStyle}>
-              <h1>Tour this house</h1>
+              <h1 style={h1}>Tour this house</h1>
             </div>
             <div className="photosContainer">
               <div style={photoContainer}>

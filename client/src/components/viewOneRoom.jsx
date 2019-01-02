@@ -4,7 +4,8 @@ import _ from 'lodash';
 
 const mainContainer = {
   'marginBottom': '24px',
-  'marginRight': '48px'
+  'marginRight': '48px',
+  'marginLeft': '64px'
 }
 
 const photoContainer = {
