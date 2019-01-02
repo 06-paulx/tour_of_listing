@@ -38,16 +38,30 @@ var CategoryPhoto = (props) => {
     'color': '#484848'
   }
 
+  const Container = {
+    'width': '25%',
+    'maxWidth': '250px',
+    'minWidth': '250px',
+    'paddingBottom': '16px',
+  }
+
+  var hrefs = (idName) => {
+    return '#' + idName;
+  }
+
   return (
-    <div className='categoryContainer'>
-      <button className='photoButton' style={button}>
-        <div className='photoContainer' style={photoContainer}>
-        <img style={img} src={props.photos[0].photourl}/>
-        </div>
-        <div className='categoryName' style={categoryName}>
-          <span>{props.photos[0].category}</span>
-        </div>
-      </button>
+    <div className='categoryContainer' style={Container} >
+      <a href={hrefs(props.photos[0].category)}>
+        <button className='photoButton' style={button} onClick={props.changeToTourThisHome}>
+          <div className='photoContainer' style={photoContainer}>
+          <img style={img} src={props.photos[0].photourl}/>
+          </div>
+          <div className='categoryName' style={categoryName}>
+            <span>{props.photos[0].category}</span>
+          </div>
+        </button>
+      </a>
+      
     </div>
   )
 }

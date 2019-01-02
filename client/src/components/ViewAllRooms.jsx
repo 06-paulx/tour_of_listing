@@ -13,18 +13,31 @@ const viewAllRooms = (props) => {
     'flexWrap': 'wrap',
   }
 
-  const viewAllRoomsMainContainer = {
+  const viewAllRoomsHeader = {
+    'marginTop': '64px',
+    'marginLeft': 'auto',
+    'marginRight': 'auto',
+  }
+
+  const mainContainer = {
+    'maxWidth': '1080px',
     'paddingTop': '50px',
+    'paddingRight': '24px',
+    'paddingLeft': '24px',
+    'margin': 'auto',
   }
   return (
     <div>
-      <div className='viewAllRoomsHeader' style={viewAllRoomsMainContainer}>
-        <StickyNavBar changeViewToMain={props.changeViewToMain}/>
+      <div className='viewAllRoomsHeader' style={viewAllRoomsHeader}>
+        <StickyNavBar 
+        changeViewToMain={props.changeViewToMain} 
+        changeToTourThisHome={props.changeToTourThisHome}
+        view={props.view} />
       </div>
-      <div className='viewAllRoomsMainContainer'>
+      <div className='viewAllRoomsMainContainer' style={mainContainer}>
         <div className='categoryContainer' style={categoryContainer}>
         {_.map(props.photos, (category) => {
-          return <ViewOneRoom photos={category} />
+          return <ViewOneRoom photos={category} changeToTourThisHome={props.changeToTourThisHome}/>
         })}
         </div>
       </div>

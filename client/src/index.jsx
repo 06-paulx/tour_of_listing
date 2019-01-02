@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import CategoryPhoto from './components/CategoryPhoto.jsx';
 import _ from 'lodash';
 import ViewAllRooms from './components/ViewAllRooms.jsx';
+import TourThisHome from './components/TourThisHome.jsx';
 
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
     };
     this.changeToViewAllRooms = this.changeToViewAllRooms.bind(this);
     this.changeViewToMain = this.changeViewToMain.bind(this);
+    this.changeToTourThisHome = this.changeToTourThisHome.bind(this);
   }
 
   retrievePhotos() {
@@ -47,17 +49,34 @@ class App extends React.Component {
     })
   }
 
+  changeToTourThisHome() {
+    this.setState({
+      view: 'tourThisHome',
+    })
+  }
+
   componentDidMount() {
     console.log('component mounted ', this.state.listingId);
     this.retrievePhotos();
   }
 
   render() {
+    const padding = {
+      'marginLeft': '12px',
+      'mrginRight': '12px',
+    }
+
+    const mainContainer = {
+      'maxWidth': '1080px',
+      'margin': 'auto',
+      'paddingLeft': '24px',
+      'paddingRight': '24px',
+    }
+
     const headerStyle = {
       'marginBotton': '36px',
       'color': '#484848',
       'font': 'system-ui'
-      
     };
     
     const photoContainer = {
@@ -65,6 +84,7 @@ class App extends React.Component {
       'flexDirection': 'row',
       'flexWrap': 'wrap',
       'marginBottom': '30px',
+      'marginTop': '24px',
     }
     
     const button = {
@@ -76,30 +96,56 @@ class App extends React.Component {
       'fontSize': '14px'
     }
 
+    const h1 = {
+      'fontFamily': 'circular, Helvetica, Arial, sans-serif',
+      'marginBottom': '32px',
+    }
+
     if (this.state.view === 'main'){
+      const some = this;
       return (
-        <div className="mainContainer">
-          <div className="header" style={headerStyle}>
-            <h1>Tour this house</h1>
-          </div>
-          <div className="photosContainer">
-            <div style={photoContainer}>
-            {_.map(this.state.photos, function(value) {
-              return <CategoryPhoto photos={value} />
-            })}
+        <div style={padding}>
+          <div className="mainContainer" style={mainContainer}>
+            <div className="header" style={headerStyle}>
+              <h1 style={h1}>Tour this house</h1>
+            </div>
+            <div className="photosContainer">
+              <div style={photoContainer}>
+              {_.map(this.state.photos, function(value) {
+              return <CategoryPhoto photos={value} changeToTourThisHome={some.changeToTourThisHome}/>
+              })}
+              </div>
+            </div>
+            <div className="exploreMore">
+              <button style={button} onClick={this.changeToViewAllRooms}>
+              Explore all {_.reduce(this.state.photos, (acc, value, key) => {
+                return acc + value.length
+              }, 0)} photos
+              </button>
             </div>
           </div>
-          <div className="exploreMore">
-            <button style={button} onClick={this.changeToViewAllRooms}>Explore all # photos</button>
-          </div>
-      </div>
+        </div>
       );
     } else if (this.state.view === 'viewAllRooms') {
       return (
         <div>
-          <ViewAllRooms photos={this.state.photos} changeViewToMain={this.changeViewToMain}/>
+          <ViewAllRooms 
+          photos={this.state.photos} 
+          changeViewToMain={this.changeViewToMain}
+          changeToTourThisHome={this.changeToTourThisHome}
+          view='viewAllRooms' />
         </div>
       );
+    } else if (this.state.view === 'tourThisHome') {
+      return (
+        <div>
+          <TourThisHome 
+          photos={this.state.photos} 
+          changeViewToMain={this.changeViewToMain}
+          changeToViewAllRooms={this.changeToViewAllRooms} 
+          view='tourThisHome'/>
+        </div>
+      )
     }
   }
 };
