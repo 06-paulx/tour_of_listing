@@ -18,7 +18,8 @@ const categoryName = {
   'marginTop': '8px',
   'textAlign': 'left',
   'fontSize': '14px',
-  'color': '#484848'
+  'color': '#484848',
+  'fontFamily': 'circular, Helvetica, Arial, sans-serif',
 }
 
 const ViewOneRoom = (props) => {

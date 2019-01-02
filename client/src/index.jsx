@@ -97,6 +97,7 @@ class App extends React.Component {
     }
 
     const h1 = {
+      'fontFamily': 'circular, Helvetica, Arial, sans-serif',
       'marginBottom': '32px',
     }
 

@@ -9,8 +9,8 @@ const TourThisHome = (props) => {
 const mainContainer = {
   'maxWidth': '1080px',
   'paddingTop': '64px',
-  'paddingRight': '24px',
-  'paddingLeft': '24px',
+  'paddingRight': '36px',
+  'paddingLeft': '36px',
   'margin': 'auto',
 }
   return (

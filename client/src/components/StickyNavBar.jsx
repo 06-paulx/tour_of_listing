@@ -80,10 +80,12 @@ class StickyNavBar extends React.Component {
     }
 
     const tableCell = {
+      'fontFamily': 'circular, Helvetica, Arial, sans-serif',
       'display': 'table-cell',
       'verticalAlign': 'middle',
       'fontSize': '14px',
     }
+    
     if (this.props.view === 'viewAllRooms') {
       return (
         <nav style={fixedNav}>
