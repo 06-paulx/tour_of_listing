@@ -26,8 +26,19 @@ const viewAllRooms = (props) => {
     'paddingLeft': '24px',
     'margin': 'auto',
   }
+  const overlay = {
+    'position': 'fixed',
+    'overflowY': 'scroll',
+    'top': '0',
+    'right': '0',
+    'left': '0',
+    'bottom': '0',
+    'backgroundColor': 'white',
+    'zIndex': '3'
+  }
+
   return (
-    <div>
+    <div style={overlay}>
       <div className='viewAllRoomsHeader' style={viewAllRoomsHeader}>
         <StickyNavBar 
         changeViewToMain={props.changeViewToMain} 

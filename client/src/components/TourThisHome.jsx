@@ -13,8 +13,19 @@ const mainContainer = {
   'paddingLeft': '36px',
   'margin': 'auto',
 }
+
+const overlay = {
+  'position': 'fixed',
+  'overflowY': 'scroll',
+  'top': '0',
+  'left': '0',
+  'right': '0',
+  'bottom': '0',
+  'backgroundColor': 'white',
+  'zIndex': '3'
+}
   return (
-    <div>
+    <div style={overlay}>
       <div className='TourThisHomeHeader'>
         <StickyNavBar 
         changeViewToMain={props.changeViewToMain}
