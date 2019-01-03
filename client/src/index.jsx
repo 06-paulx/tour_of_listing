@@ -106,7 +106,7 @@ class App extends React.Component {
       return (
         <div style={padding}>
           <div className="mainContainer" style={mainContainer}>
-            <div className="header" style={headerStyle}>
+            <div style={headerStyle}>
               <h1 style={h1}>Tour this house</h1>
             </div>
             <div className="photosContainer">
